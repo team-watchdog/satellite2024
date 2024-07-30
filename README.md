@@ -194,6 +194,8 @@ Attempts to convert this to machine processable formats led to many of the scrip
 
 We then tiled this imagery (using boxcutter.py: see geodog repository) into 3614 individual tiles at a size of 256x256 pixels per tile. We cleaned this up by removing all tiles that had our aforementioned vivid shade of purple in them, leaving us with 3400 input-output pairs for training data. The input was a tile of satellite imagery, the output the equivalent tile of the UDA map.
 
+## Model training
+
 Using tensorflow's pix2pix example as the base, we built our model training and inference notebook (pix2pix.ipynb in this repository). In a nutshell, this notebook:
 
 1) Performs a number of preprocessing steps, including using OpenCV to align each pair of input and output images by matching features between them
@@ -213,3 +215,5 @@ Discriminator Loss: 1.0119
 ```
 
 We used this model to perform classifications of our imagery from 2017 to 2024 using our customary tile based approach. We use OpenCV to smoothen each tile to create a single grid structure of almost cartoonishly, but very immediately visible features; This makes for a much smaller image that can be opened on pretty much any device regardless of processing power while being immediately and intuitively understandable. In this image, bright green is forest, untouched forestry, various shades of green turning to brown shows green areas that have been cut down or trimmed and white of course represents human activity; built up areas. There is a difference with the bluescale imagery in that this classifies human activity and not natural features that happen to have very low amounts of greenery, for example, scrub lands. 
+
+
