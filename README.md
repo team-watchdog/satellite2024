@@ -220,7 +220,7 @@ We used this model to perform classifications of our imagery from 2017 to 2024 u
 
 ![image](https://github.com/user-attachments/assets/b5de5088-17f7-47bf-ba6b-396ee78dd014)
 
-In this image, bright green is forest; untouched forestry. Blue is water. Various shades of green turning to brown shows green areas that have been cut down or trimmed; white of course represents built up areas. There is a difference with the bluescale imagery in that this classifies human activity and not natural features that happen to have very low amounts of greenery, for example, scrub lands. 
+In this image, bright green is forest; untouched forestry. Blue is water. Various shades of green turning to brown shows green areas that have been cut down or trimmed; white of course represents built up areas. There is a difference with the bluescale imagery in that this classifies human activity and not natural features that happen to have very low amounts of greenery, for example, scrubland. 
 
 ![image](https://github.com/user-attachments/assets/bfacfdab-e699-48fc-aa54-8266948b456e)
 
