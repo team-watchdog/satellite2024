@@ -200,7 +200,8 @@ Using tensorflow's pix2pix example as the base, we built our model training and 
 2) Builds a test and train data set.
 3) Trains a Pix2Pix model from scratch
 
-![image](https://github.com/user-attachments/assets/ad58f9ff-7510-4b68-9281-19436ea58920)
+
+![image](https://github.com/user-attachments/assets/cfca7de7-d8cd-412f-8492-73dd8e2e5436)
 
 
 We train this model for 1,150 K steps - a little over 338 epochs. These types of GAN models are difficult to convention analyze through loss values (since generator and discriminator loss values can perfectly balance but still generate nonsense); instead, we observed every 5,000 steps until the model collapse happened around 200K steps later, and tested a variety of different checkpoints until we settled on checkpoint 238. Our final loss values look like this: 
