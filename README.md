@@ -34,6 +34,7 @@ Data used for this project comes from the Sentinel-2 satellites from the Europea
 
 To minimize cloud cover and artefacts, we use data from three seasons of each year up to the 31st of December. The exception is 2024, where, as of the time of writing, it is not yet December, and therefore, we used two seasons of data up to the 29th of July. 
 
+```
 {
    "id":"5ac6742e-819a-4e7e-96af-26c6af252c0a",
    "projectId":"7a41c873-8df1-4f39-9b12-2b4552ca511f",
@@ -160,3 +161,4 @@ To minimize cloud cover and artefacts, we use data from three seasons of each ye
    },
    "title":"LK_Optical_s2"
 }
+```
