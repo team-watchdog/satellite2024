@@ -28,4 +28,135 @@ Due to the very large nature of file sizes involved in this, the imagery availab
 
 This repository also contains the notebook that was used for 4). Other scripts used for this exercise have been standardized and uploaded into the team-watchdog/geodog repo, since they are useful units of functionality for future work. 
 
-# Construction
+# Data acquisition
+
+Data used for this project comes from the Sentinel-2 satellites from the European Space Agency. These satellites operate at a 10 square meter resolution for their RGB bands; that is, a single pixel is 10 meters in reality. While originally we obtained imagery directly from Sentinel Hub using their Python libraries, we found it more convenient to use sepal.io, which in turn uses Google Earth Engine and Google Cloud to set up repeatable workflows that standardize the question of imagery and help us work around disruptions such as electricity or internet outages. 
+
+To minimize cloud cover and artefacts, we use data from three seasons of each year up to the 31st of December. The exception is 2024, where, as of the time of writing, it is not yet December, and therefore, we used two seasons of data up to the 29th of July. 
+
+{
+   "id":"5ac6742e-819a-4e7e-96af-26c6af252c0a",
+   "projectId":"7a41c873-8df1-4f39-9b12-2b4552ca511f",
+   "type":"MOSAIC",
+   "placeholder":"Optical_mosaic_2024-06-24_15-14-29",
+   "model":{
+      "dates":{
+         "targetDate":"2024-07-29",
+         "seasonStart":"2024-01-01",
+         "seasonEnd":"2025-01-01",
+         "yearsBefore":1,
+         "yearsAfter":0
+      },
+      "sources":{
+         "dataSets":{
+            "SENTINEL_2":[
+               "SENTINEL_2"
+            ]
+         },
+         "cloudPercentageThreshold":20
+      },
+      "sceneSelectionOptions":{
+         "type":"ALL",
+         "targetDateWeight":0
+      },
+      "compositeOptions":{
+         "corrections":[
+            "SR",
+            "BRDF",
+            "CALIBRATE"
+         ],
+         "filters":[
+            
+         ],
+         "cloudDetection":[
+            "QA",
+            "CLOUD_SCORE"
+         ],
+         "cloudMasking":"MODERATE",
+         "cloudBuffer":0,
+         "snowMasking":"ON",
+         "compose":"MEDOID"
+      },
+      "scenes":null,
+      "aoi":{
+         "type":"EE_TABLE",
+         "id":"users/wiell/SepalResources/gaul",
+         "keyColumn":"id",
+         "key":231,
+         "level":"COUNTRY",
+         "buffer":1
+      }
+   },
+   "layers":{
+      "areas":{
+         "left":{
+            "id":"e38d8c84-6d63-4b31-8810-f6c8fa4da1f3",
+            "imageLayer":{
+               "sourceId":"google-satellite"
+            },
+            "featureLayers":[
+               {
+                  "sourceId":"aoi",
+                  "disabled":true
+               },
+               {
+                  "sourceId":"labels",
+                  "disabled":true
+               }
+            ]
+         },
+         "right":{
+            "id":"default-layer",
+            "imageLayer":{
+               "sourceId":"this-recipe",
+               "layerConfig":{
+                  "panSharpen":false,
+                  "visParams":{
+                     "type":"rgb",
+                     "bands":[
+                        "red",
+                        "green",
+                        "blue"
+                     ],
+                     "min":[
+                        300,
+                        100,
+                        0
+                     ],
+                     "max":[
+                        2500,
+                        2500,
+                        2300
+                     ],
+                     "gamma":[
+                        1.3,
+                        1.3,
+                        1.3
+                     ],
+                     "inverted":[
+                        false,
+                        false,
+                        false
+                     ]
+                  }
+               }
+            },
+            "featureLayers":[
+               {
+                  "sourceId":"aoi"
+               },
+               {
+                  "sourceId":"labels",
+                  "disabled":true
+               },
+               {
+                  "sourceId":"values",
+                  "disabled":true
+               }
+            ]
+         }
+      },
+      "mode":"grid"
+   },
+   "title":"LK_Optical_s2"
+}
