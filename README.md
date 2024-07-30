@@ -1,5 +1,5 @@
 # Sri Lankan maps for understanding environment and urban growth
-by @yudhanjaya
+by Yudhanjaya Wijeratne (@yudhanjaya)
 
 This repository contains the results of our work with satellite imagery. What we are specifically interested here is in understanding how Sri Lanka's environment has changed over the years 2017 to 2024, specifically with regard to loss of greenery and the growth of built-up areas and urban spaces. This operates broadly in the space known as land use and land cover classification. While the government of Sri Lankar does do and use and cover work, the closest publicly available map is from 2018 as of the time of writing and therefore it is quite difficult to observe a range of years up to today. 
 
