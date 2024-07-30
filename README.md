@@ -1,8 +1,14 @@
-# satellite2024
+# Sri Lankan maps for understanding environment and urban growth
 
-This repository contains the results of our work with satellite imagery. What we are specifically interested here is in understanding how Sri Lanka's environment has changed over the years 2017 to 2024, specifically with regard to loss of greenery and the growth of built-up areas and urban spaces. This operates broadly in the space known as land use and land cover classification. 
+This repository contains the results of our work with satellite imagery. What we are specifically interested here is in understanding how Sri Lanka's environment has changed over the years 2017 to 2024, specifically with regard to loss of greenery and the growth of built-up areas and urban spaces. This operates broadly in the space known as land use and land cover classification. While the government of Sri Lankar does do and use and cover work, the closest publicly available map is from 2018 as of the time of writing and therefore it is quite difficult to observe a range of years up to today. 
 
-In order to be practically useful and usable in a journalistic setting, LULC work must be taken out of a pure machine learning and statistics and data science context, and be rendered as images that anyone can open. Therefore, these cloud storage drives contain: 
+In order to be practically useful and usable in a journalistic setting, LULC work must be taken out of a pure machine learning and data science context, and be rendered as images that anyone can open. We've uploaded said imagery here:
+
+1) Gdrive link: https://drive.google.com/drive/folders/1ehnyt1YYxJW-wsyqOUrjFpzLRVw2tNzt?usp=drive_link
+2) Mega link: https://mega.nz/folder/b3g3lTxb#sKY1D4u75PQ4fO41d_WQVg
+
+
+These cloud storage drives contain: 
 
 
 1) Satellite imagery from Sentinel 2 for each year between 2017 and 2024. The data in question uses multiple months, specifically three seasons, for all except for 2024, in order to provide a cloudless snapshot of the country.
@@ -18,8 +24,8 @@ In order to be practically useful and usable in a journalistic setting, LULC wor
 ![image](https://github.com/user-attachments/assets/336d132d-de3d-4766-be7b-b73774d60afb)
 
 
-Gdrive link: https://drive.google.com/drive/folders/1ehnyt1YYxJW-wsyqOUrjFpzLRVw2tNzt?usp=drive_link
+Due to the very large nature of file sizes involved in this, the imagery available on the cloud storage drives are JPGs at 13214x21888 pixels. The PNG editions of the same files (double the resolution) total 27 gigabytes; the TIFF versions, which are the original format of the satellite imagery, are even larger. 
 
-Mega link: https://mega.nz/folder/b3g3lTxb#sKY1D4u75PQ4fO41d_WQVg
+This repository also contains the notebook that was used for 4). Other scripts used for this exercise have been standardized and uploaded into the team-watchdog/geodog repo, since they are useful units of functionality for future work. 
 
-Due to the very large nature of file sizes involved in this, the imagery available on the cloud storage drives are high resolution JPGs. The PNG editions of the same files total 27 gigabytes and the TIFF versions which are the original format of the satellite imagery are even larger. 
+# Construction
