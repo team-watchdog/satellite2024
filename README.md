@@ -1,4 +1,5 @@
 # Sri Lankan maps for understanding environment and urban growth
+by @yudhanjaya
 
 This repository contains the results of our work with satellite imagery. What we are specifically interested here is in understanding how Sri Lanka's environment has changed over the years 2017 to 2024, specifically with regard to loss of greenery and the growth of built-up areas and urban spaces. This operates broadly in the space known as land use and land cover classification. While the government of Sri Lankar does do and use and cover work, the closest publicly available map is from 2018 as of the time of writing and therefore it is quite difficult to observe a range of years up to today. 
 
@@ -14,7 +15,7 @@ These cloud storage drives contain:
 1) Satellite imagery from Sentinel 2 for each year between 2017 and 2024. The data in question uses multiple months, specifically three seasons, for all except for 2024, in order to provide a cloudless snapshot of the country.
 ![image](https://github.com/user-attachments/assets/2f48ed8c-daad-4cc3-b6e7-7080c07af755)
 
-2) High contrast re-renders of the same satellite imagery, where we've duplicated the image, arranged it into two layers, and applied the multiply operation to combine the layers - ie: multiplied the pixel values of the upper layer with those of the layer below it and then divided the result by 255. This makes terrain features features far more visible than the ordinary render.
+2) High contrast re-renders of the same satellite imagery. This makes terrain features features far more visible than the ordinary render.
 ![image](https://github.com/user-attachments/assets/467ac359-2164-4b08-88a7-83dea456e254)
 
 3) A single colour version of the same image, where each pixel of the high-contrast re-render has been processed and its luminosity assigned a value between white and deep blue. We refer to this as bluescale. What it essentially shows is greenery and lack thereof with the darker colours being more untouched greenery and the lighter colours being a loss of greenery; it has the effect of making roads, human settlements, cleared land and other features stand out in brilliant white.
@@ -30,9 +31,11 @@ This repository also contains the notebook that was used for 4). Other scripts u
 
 # Data acquisition
 
-Data used for this project comes from the Sentinel-2 satellites from the European Space Agency. These satellites operate at a 10 square meter resolution for their RGB bands; that is, a single pixel is 10 meters in reality. While originally we obtained imagery directly from Sentinel Hub using their Python libraries, we found it more convenient to use sepal.io, which in turn uses Google Earth Engine and Google Cloud to set up repeatable workflows that standardize the question of imagery and help us work around disruptions such as electricity or internet outages. 
+Data used for this project comes from the Sentinel-2 satellites from the European Space Agency. These satellites operate at a 10 square meter resolution for their RGB bands; that is, a single pixel is 10 meters in reality. We used the RGB bands; they are the most intuitive, and we needed to keep processing and data our heads low (early experiments with NDVI, SWIR and near-infrared bands led us to gargantuan data sizes for each single year and comparatively increased processing times). 
 
-To minimize cloud cover and artefacts, we use data from three seasons of each year up to the 31st of December. The exception is 2024, where, as of the time of writing, it is not yet December, and therefore, we used two seasons of data up to the 29th of July. 
+While originally we obtained imagery directly from Sentinel Hub using their Python libraries, we found it more convenient to use Sepal.io, which in turn uses Google Earth Engine and Google Cloud to set up repeatable workflows that standardize the question of imagery and help us work around disruptions such as electricity or internet outages. 
+
+To minimize cloud cover and artefacts, we use data from three seasons of each year up to the 31st of December. The exception is 2024, where, as of the time of writing, it is not yet December, and therefore, we used two seasons of data up to the 29th of July. Imagery used for this pull had to satisfy the criteria of having less than 20% cloud cover; then these are put together into an optical mosaic that gives us a composite image for the year. The general settings for the data pull are here (also available as LK_Optical_S2.json in this repo) and can be replicated on Sepal*. 
 
 ```
 {
@@ -162,3 +165,26 @@ To minimize cloud cover and artefacts, we use data from three seasons of each ye
    "title":"LK_Optical_s2"
 }
 ```
+* note that Sepal requires some setting up and interlinking of Google Earth Engine and Google Cloud.
+
+Imagery obtained this way is tiled into multiple tiffs that are connected together by a single .VRT file. We used QGIS to stitch everything together into a single TIF file for each year. 
+
+
+# Postprocessing: highcontrast and bluespace
+
+First, we converted the image to a PNG. At these sizes, conversion using conventional graphical editors gets challenging, so we wrote a small utility that processes an image in tiles: tiff_to_png.py (see geodog repository).
+
+To generate the high contrast imagery, we converted the image into a three-channel (RGB) image, arranged it into two layers, and applied the multiply operation to combine the layers - ie: multiplied the pixel values of the upper layer with those of the layer below it and then divided the result by 255. 
+
+To generate the bluescale imagery, we wrote a utility that uses the same tile-based approach as above to calculate the luminance values of each pixel within a tile and map them onto an axis ranging from dark blue ( 0, 0, 50 ) to white. This is blueconverter.py (see geodog repository). This utility also allows us to rescale and adjust contrast as required. We used a contrast setting of 125% and a scale setting of 50% for the final results. 
+
+# Building the Pix2Pix model
+
+## Training data
+
+Finding training data for this kind of work is difficult. Usually, in land cover and land classification work, there exists shapefiles that are the results of surveys done by governments; these form the basis for training and machine learning model. In our case, we had a single image to go on:
+
+![image](https://github.com/user-attachments/assets/aa696000-c911-4304-8d28-b8e0d4312c3d)
+
+
+
