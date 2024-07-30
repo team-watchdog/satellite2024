@@ -180,13 +180,15 @@ To generate the bluescale imagery, we wrote a utility that uses the same tile-ba
 
 # Building the Pix2Pix model
 
-## Training data
-
 Finding training data for this kind of work is difficult. Usually, in land cover and land classification work, there exists ready-made shapefiles that are the results of surveys done by governments; these form the basis for training and machine learning model. In our case, we had a single image to go on:
 
 ![image](https://github.com/user-attachments/assets/aa696000-c911-4304-8d28-b8e0d4312c3d)
 
-Attempts to convert this to machine processable formats led to many of the scripts within the geodog repository. Ultimately, with a great deal of manual processing, we aligned the image to a shapefile of national boundaries and cleaned up the imagery.
+Attempts to convert this to machine processable formats led to many of the scripts within the geodog repository. However, this kind of challenge is also an interesting opportunity. You may have seen applications that will re-render an image into the style of another, for example photography rendered in the style of Van Gogh. The approach we took is similar, that is we have satellite imagery, we also have the imagery of a map representing said satellite imagery: could we transfer the style of one to another? 
+
+## Training data
+
+With a great deal of manual processing, we aligned the image to a shapefile of national boundaries and cleaned up the imagery.
 
 1) Rocky areas and the names of cities have to be the same color. This would mean that a competent machine learning model would assume that every city in Sri Lanka has an ex to it a very suspicious looking rock formation that spells out the name of the city. These we could not remove (as white also represents wetlands), but we turned them a vivid shade of purple.
 2) We also removed the red lines that are drawn through the map to represent district boundaries. Although that color is used to signify rubber in the legend, we could not actually find any evidence of rubber, but it was a dead match for the district boundaries.
