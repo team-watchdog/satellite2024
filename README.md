@@ -205,14 +205,11 @@ Using tensorflow's pix2pix example as the base, we built our model training and 
 
 We trained this model for 1,150 K steps - a little over 338 epochs. These types of GAN models are difficult to convention analyze through loss values (since generator and discriminator loss values can perfectly balance but still generate nonsense); instead, we observed every 5,000 steps until the model collapse happened around 200K steps later, and tested a variety of different checkpoints until we settled on checkpoint 238. Our final loss values look like this: 
 
-'''
+```
 Generator Total Loss: 1.0904
-
 Generator GAN Loss: 1.0902
-
 Generator L1 Loss: 0.0000
-
 Discriminator Loss: 1.0119
-'''
+```
 
 We used this model to perform classifications of our imagery from 2017 to 2024 using our customary tile based approach. We use OpenCV to smoothen each tile to create a single grid structure of almost cartoonishly, but very immediately visible features; This makes for a much smaller image that can be opened on pretty much any device regardless of processing power while being immediately and intuitively understandable. In this image, bright green is forest, untouched forestry, various shades of green turning to brown shows green areas that have been cut down or trimmed and white of course represents human activity; built up areas. There is a difference with the bluescale imagery in that this classifies human activity and not natural features that happen to have very low amounts of greenery, for example, scrub lands. 
