@@ -186,10 +186,27 @@ Finding training data for this kind of work is difficult. Usually, in land cover
 
 ![image](https://github.com/user-attachments/assets/aa696000-c911-4304-8d28-b8e0d4312c3d)
 
-Attempts to convert this to machine processable formats led to many of the scripts within the geodog repository. Ultimately, with a great deal of manual processing, we cleaned up the imagery.
+Attempts to convert this to machine processable formats led to many of the scripts within the geodog repository. Ultimately, with a great deal of manual processing, we aligned the image to a shapefile of national boundaries and cleaned up the imagery.
 
 1) Rocky areas and the names of cities have to be the same color. This would mean that a competent machine learning model would assume that every city in Sri Lanka has an ex to it a very suspicious looking rock formation that spells out the name of the city. These we could not remove (as white also represents wetlands), but we turned them a vivid shade of purple.
 2) We also removed the red lines that are drawn through the map to represent district boundaries. Although that color is used to signify rubber in the legend, we could not actually find any evidence of rubber, but it was a dead match for the district boundaries.
 3) We removed the gradient background, the legends, the text around it.
 
-We then tiled this imagery (using boxcutter.py: see geodog repository) into 3614 individual tiles at a size of 256x256 pixels per tile. We cleaned this up by removing all tiles that had our aforementioned vivid shade of purple in them, leaving us with 3400 images for training data.   
+We then tiled this imagery (using boxcutter.py: see geodog repository) into 3614 individual tiles at a size of 256x256 pixels per tile. We cleaned this up by removing all tiles that had our aforementioned vivid shade of purple in them, leaving us with 3400 input-output pairs for training data. The input was a tile of satellite imagery, the output the equivalent tile of the UDA map.
+
+Using tensorflow's pix2pix example as the base, we built our model training and inference notebook (pix2pix.ipynb in this repository). In a nutshell, this notebook:
+
+1) Performs a number of preprocessing steps, including using OpenCV to align each pair of input and output images by matching features between them
+2) Builds a test and train data set.
+3) Trains a Pix2Pix model from scratch
+
+![image](https://github.com/user-attachments/assets/2539d037-9460-435d-96eb-afd8b901c827)
+
+We train this model for 1,150 K steps - a little over 338 epochs. These types of GAN models are difficult to convention analyze through loss values, but we observed every 5,000 steps until the model collapse happened around 200K steps later, and tested a variety of different checkpoints until we settled on checkpoint 238.
+
+'''
+Generator Total Loss: 1.0904
+Generator GAN Loss: 1.0902
+Generator L1 Loss: 0.0000
+Discriminator Loss: 1.0119
+'''
