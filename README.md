@@ -21,8 +21,9 @@ These cloud storage drives contain:
 3) A single colour version of the same image, where each pixel of the high-contrast re-render has been processed and its luminosity assigned a value between white and deep blue. We refer to this as bluescale. What it essentially shows is greenery and lack thereof with the darker colours being more untouched greenery and the lighter colours being a loss of greenery; it has the effect of making roads, human settlements, cleared land and other features stand out in brilliant white.
 ![image](https://github.com/user-attachments/assets/c1398d63-9b3e-48f2-8a39-c03d00d56550)
 
-4) For easier reference, land use, land classification map for each year derived using a pix2pix network (a conditional generative adversarial network) trained on the Urban Development Authority's 2018 land use map. While not particularly precise, it is much smaller in file size, easier to refer to due to its gridded nature and forms a useful artifact in examining differences across the years. 
-![image](https://github.com/user-attachments/assets/336d132d-de3d-4766-be7b-b73774d60afb)
+4) For easier reference, land use, land classification map for each year derived using a pix2pix network (a conditional generative adversarial network) trained on the Sri Lankan Land Use Policy Planning Department's 2018 land use map. While not particularly precise, it is much smaller in file size, easier to refer to due to its gridded nature and forms a useful artifact in examining differences across the years. 
+![image](https://github.com/user-attachments/assets/9732d628-df37-416d-ae23-97aa72f1ad99)
+
 
 
 Due to the very large nature of file sizes involved in this, the imagery available on the cloud storage drives are JPGs at 13214x21888 pixels. The PNG editions of the same files (double the resolution) total 27 gigabytes; the TIFF versions, which are the original format of the satellite imagery, are even larger. 
@@ -194,7 +195,7 @@ With a great deal of manual processing, we aligned the image to a shapefile of n
 2) We also removed the red lines that are drawn through the map to represent district boundaries. Although that color is used to signify rubber in the legend, we could not actually find any evidence of rubber, but it was a dead match for the district boundaries.
 3) We removed the gradient background, the legends, the text around it.
 
-We then tiled this imagery (using boxcutter.py: see geodog repository) into 3614 individual tiles at a size of 256x256 pixels per tile. We cleaned this up by removing all tiles that had our aforementioned vivid shade of purple in them, leaving us with 3400 input-output pairs for training data. The input was a tile of satellite imagery, the output the equivalent tile of the UDA map.
+We then tiled this imagery (using boxcutter.py: see geodog repository) into 3614 individual tiles at a size of 256x256 pixels per tile. We cleaned this up by removing all tiles that had our aforementioned vivid shade of purple in them, leaving us with 3400 input-output pairs for training data. The input was a tile of satellite imagery, the output the equivalent tile of the government map.
 
 ## Model training
 
