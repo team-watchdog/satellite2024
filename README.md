@@ -1,13 +1,10 @@
 # Sri Lankan maps for understanding environment and urban growth
 by Yudhanjaya Wijeratne (@yudhanjaya)
 
-This repository contains the results of our work with satellite imagery. What we are specifically interested here is in understanding how Sri Lanka's environment has changed over the years 2017 to 2024, specifically with regard to loss of greenery and the growth of built-up areas and urban spaces. This operates broadly in the space known as land use and land cover classification. While the government of Sri Lanka does do and use land cover mapping, the closest publicly available map is from 2018 as of the time of writing and therefore it is quite difficult to observe a range of years up to today. 
+This repository contains the results of our work with satellite imagery: 32 satellite imagery maps of Sri Lanka from 2017-2024, ranging from normal RGB, to high contrast versions, to gridded land cover / land use mapped by our in-house machine learning models. The satellite imagery was obtianed at a 10^2 meter resolution from Sentinel-2 and is here made available in a commonly viewable format (JPG) at a resolution of 13214x21888 pixels per map. 
 
-```
-This work is was created in partnership with the Strengthening Social Cohesion and Peace in Sri Lanka programme (SCOPE) co-funded by the European Union and German Federal Foreign Office. SCOPE is implemented by The Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH in partnership with the Ministry of Justice, Prisons Affairs and Constitutional Reforms (MoJ).
-```
+This work was created in partnership with the Strengthening Social Cohesion and Peace in Sri Lanka programme (SCOPE) co-funded by the European Union and German Federal Foreign Office. SCOPE is implemented by The Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH in partnership with the Ministry of Justice, Prisons Affairs and Constitutional Reforms (MoJ).
 
-```
 This project contains modified Copernicus Sentinel data [2024] via Google Earth Engine and Sepal.io. [EU law](https://sentinel.esa.int/documents/247904/690755/Sentinel_Data_Legal_Notice) grants free access to Copernicus Sentinel Data and Service Information for the purpose of the following use in so far as it is lawful:
 (a) reproduction;
 (b) distribution;
@@ -19,6 +16,8 @@ Special thanks to the European Space Agency, Google and Sepal for making these s
 ```
 
 #Maps
+
+What we are specifically interested here is in understanding how Sri Lanka's environment has changed over the years 2017 to 2024, specifically with regard to loss of greenery and the growth of built-up areas and urban spaces. This operates broadly in the space known as land use and land cover classification. While the government of Sri Lanka does do and use land cover mapping, the closest publicly available map is from 2018 as of the time of writing and therefore it is quite difficult to observe a range of years up to today.
 
 In order to be practically useful and usable in a journalistic setting, LULC work must be taken out of a pure machine learning and data science context, and be rendered as images that anyone can open. We've uploaded said imagery here:
 
@@ -42,7 +41,7 @@ These cloud storage drives contain:
 
 
 
-Due to the very large nature of file sizes involved in this, the imagery available on the cloud storage drives are JPGs at 13214x21888 pixels. The PNG editions of the same files (double the resolution) total 27 gigabytes; the TIFF versions, which are the original format of the satellite imagery, are even larger. 
+Due to the very large nature of file sizes involved in this, the imagery available on the cloud storage drives are JPGs. The PNG editions of the same files (double the resolution) total 27 gigabytes; the TIFF versions, which are the original format of the satellite imagery, are even larger. 
 
 This repository also contains the notebook that was used for 4). Other scripts used for this exercise have been standardized and uploaded into the team-watchdog/geodog repo, since they are useful units of functionality for future work. 
 
