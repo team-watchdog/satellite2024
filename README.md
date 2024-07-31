@@ -207,6 +207,9 @@ Using tensorflow's pix2pix example as the base, we built our model training and 
 
 ![training](https://github.com/user-attachments/assets/3721d68e-5e20-4e32-a837-fc5289b41b0b)
 
+We trained this model for 1,150 K steps - a little over 338 epochs. These types of GAN models are difficult to convention analyze through loss values (since generator and discriminator loss values can perfectly balance but still generate nonsense); instead, we observed every 5,000 steps until the model collapse happened around 200K steps later, and tested a variety of different checkpoints until we settled on checkpoint 238. 
+
+
 ```
 ┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
 ┃ Layer (type)        ┃ Output Shape      ┃    Param # ┃ Connected to      ┃
@@ -288,7 +291,8 @@ Using tensorflow's pix2pix example as the base, we built our model training and 
  Non-trainable params: 10,880 (42.50 KB)
 ```
 
-We trained this model for 1,150 K steps - a little over 338 epochs. These types of GAN models are difficult to convention analyze through loss values (since generator and discriminator loss values can perfectly balance but still generate nonsense); instead, we observed every 5,000 steps until the model collapse happened around 200K steps later, and tested a variety of different checkpoints until we settled on checkpoint 238. Our final loss values look like this: 
+
+Our final loss values look like this: 
 
 ```
 Generator Total Loss: 1.0904
