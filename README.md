@@ -316,7 +316,7 @@ This gives us a handy grid structure that makes it easier to detect broad, sweep
 
 # License
 
-And we hope that this work will be useful to journalists, climate analysts, and various people interested in the changing shape and nature of Sri Lanka. These images and outputs are provided on the terms of the MIT license - 
+We hope that this work will be useful to journalists, climate analysts, and various people interested in the changing shape and nature of Sri Lanka. These images and outputs are provided on the terms of the MIT license - 
 
 PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THESE OUTPUTS OR THE USE OR OTHER DEALINGS IN THE OUTPUTS.
 
