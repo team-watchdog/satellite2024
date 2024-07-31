@@ -13,7 +13,6 @@ This project contains modified Copernicus Sentinel data [2024] via Google Earth 
 (e) any combination of points (a) to (d)
 
 Special thanks to the European Space Agency, Google and Sepal for making these services available.
-```
 
 #Maps
 
