@@ -5,9 +5,8 @@ This repository contains the results of our work with satellite imagery. What we
 
 In order to be practically useful and usable in a journalistic setting, LULC work must be taken out of a pure machine learning and data science context, and be rendered as images that anyone can open. We've uploaded said imagery here:
 
-1) Gdrive link: https://drive.google.com/drive/folders/1ehnyt1YYxJW-wsyqOUrjFpzLRVw2tNzt?usp=drive_link
-2) Mega link: https://mega.nz/folder/b3g3lTxb#sKY1D4u75PQ4fO41d_WQVg
-
+1) [Gdrive link](https://link.watchdog.team/BvJH97F)
+2) [Mega link](https://link.watchdog.team/1kPLsAn)
 
 These cloud storage drives contain: 
 
