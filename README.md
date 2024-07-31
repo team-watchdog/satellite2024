@@ -6,11 +6,11 @@ This repository contains the results of our work with satellite imagery: 32 sate
 This work was created in partnership with the Strengthening Social Cohesion and Peace in Sri Lanka programme (SCOPE) co-funded by the European Union and German Federal Foreign Office. SCOPE is implemented by The Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH in partnership with the Ministry of Justice, Prisons Affairs and Constitutional Reforms (MoJ).
 
 This project contains modified Copernicus Sentinel data [2024] via Google Earth Engine and Sepal.io. [EU law](https://sentinel.esa.int/documents/247904/690755/Sentinel_Data_Legal_Notice) grants free access to Copernicus Sentinel Data and Service Information for the purpose of the following use in so far as it is lawful:
-(a) reproduction;
-(b) distribution;
-(c) communication to the public;
-(d) adaptation, modification and combination with other data and information;
-(e) any combination of points (a) to (d)
+- reproduction;
+- distribution;
+- communication to the public;
+- adaptation, modification and combination with other data and information;
+- any combination of points (a) to (d)
 
 Special thanks to the European Space Agency, Google and Sepal for making these services available.
 
