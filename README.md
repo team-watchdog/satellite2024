@@ -208,6 +208,85 @@ Using tensorflow's pix2pix example as the base, we built our model training and 
 ![training](https://github.com/user-attachments/assets/3721d68e-5e20-4e32-a837-fc5289b41b0b)
 
 
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)        ┃ Output Shape      ┃    Param # ┃ Connected to      ┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ input_layer_2       │ (None, 256, 256,  │          0 │ -                 │
+│ (InputLayer)        │ 3)                │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_2        │ (None, 128, 128,  │      3,072 │ input_layer_2[0]… │
+│ (Sequential)        │ 64)               │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_3        │ (None, 64, 64,    │    131,584 │ sequential_2[0][… │
+│ (Sequential)        │ 128)              │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_4        │ (None, 32, 32,    │    525,312 │ sequential_3[0][… │
+│ (Sequential)        │ 256)              │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_5        │ (None, 16, 16,    │  2,099,200 │ sequential_4[0][… │
+│ (Sequential)        │ 512)              │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_6        │ (None, 8, 8, 512) │  4,196,352 │ sequential_5[0][… │
+│ (Sequential)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_7        │ (None, 4, 4, 512) │  4,196,352 │ sequential_6[0][… │
+│ (Sequential)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_8        │ (None, 2, 2, 512) │  4,196,352 │ sequential_7[0][… │
+│ (Sequential)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_9        │ (None, 1, 1, 512) │  4,196,352 │ sequential_8[0][… │
+│ (Sequential)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_10       │ (None, 2, 2, 512) │  4,196,352 │ sequential_9[0][… │
+│ (Sequential)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ concatenate         │ (None, 2, 2,      │          0 │ sequential_10[0]… │
+│ (Concatenate)       │ 1024)             │            │ sequential_8[0][… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_11       │ (None, 4, 4, 512) │  8,390,656 │ concatenate[0][0] │
+│ (Sequential)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ concatenate_1       │ (None, 4, 4,      │          0 │ sequential_11[0]… │
+│ (Concatenate)       │ 1024)             │            │ sequential_7[0][… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_12       │ (None, 8, 8, 512) │  8,390,656 │ concatenate_1[0]… │
+│ (Sequential)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ concatenate_2       │ (None, 8, 8,      │          0 │ sequential_12[0]… │
+│ (Concatenate)       │ 1024)             │            │ sequential_6[0][… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_13       │ (None, 16, 16,    │  8,390,656 │ concatenate_2[0]… │
+│ (Sequential)        │ 512)              │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ concatenate_3       │ (None, 16, 16,    │          0 │ sequential_13[0]… │
+│ (Concatenate)       │ 1024)             │            │ sequential_5[0][… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_14       │ (None, 32, 32,    │  4,195,328 │ concatenate_3[0]… │
+│ (Sequential)        │ 256)              │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ concatenate_4       │ (None, 32, 32,    │          0 │ sequential_14[0]… │
+│ (Concatenate)       │ 512)              │            │ sequential_4[0][… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_15       │ (None, 64, 64,    │  1,049,088 │ concatenate_4[0]… │
+│ (Sequential)        │ 128)              │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ concatenate_5       │ (None, 64, 64,    │          0 │ sequential_15[0]… │
+│ (Concatenate)       │ 256)              │            │ sequential_3[0][… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequential_16       │ (None, 128, 128,  │    262,400 │ concatenate_5[0]… │
+│ (Sequential)        │ 64)               │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ concatenate_6       │ (None, 128, 128,  │          0 │ sequential_16[0]… │
+│ (Concatenate)       │ 128)              │            │ sequential_2[0][… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ conv2d_transpose_8  │ (None, 256, 256,  │      6,147 │ concatenate_6[0]… │
+│ (Conv2DTranspose)   │ 3)                │            │                   │
+└─────────────────────┴───────────────────┴────────────┴───────────────────┘
+ Total params: 54,425,859 (207.62 MB)
+ Trainable params: 54,414,979 (207.58 MB)
+ Non-trainable params: 10,880 (42.50 KB)
+
 We trained this model for 1,150 K steps - a little over 338 epochs. These types of GAN models are difficult to convention analyze through loss values (since generator and discriminator loss values can perfectly balance but still generate nonsense); instead, we observed every 5,000 steps until the model collapse happened around 200K steps later, and tested a variety of different checkpoints until we settled on checkpoint 238. Our final loss values look like this: 
 
 ```
