@@ -1,7 +1,7 @@
 # Sri Lankan maps for understanding environment and urban growth
 by Yudhanjaya Wijeratne (@yudhanjaya)
 
-This repository contains the results of our work with satellite imagery: 32 satellite imagery maps of Sri Lanka from 2017-2024, ranging from normal RGB, to high contrast versions, to gridded land cover / land use mapped by our in-house machine learning models. The satellite imagery was obtianed at a 10^2 meter resolution from Sentinel-2 and is here made available in a commonly viewable format (JPG) at a resolution of 13214x21888 pixels per map. 
+This repository contains the results of Team Watchdog's work with satellite imagery: 32 satellite imagery maps of Sri Lanka from 2017-2024, ranging from normal RGB, to high contrast versions, to gridded land cover / land use mapped by our in-house machine learning models. The satellite imagery was obtianed at a 10^2 meter resolution from Sentinel-2 and is here made available in a commonly viewable format (JPG) at a resolution of 13214x21888 pixels per map. 
 
 This work was created in partnership with the Strengthening Social Cohesion and Peace in Sri Lanka programme (SCOPE) co-funded by the European Union and German Federal Foreign Office. SCOPE is implemented by The Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH in partnership with the Ministry of Justice, Prisons Affairs and Constitutional Reforms (MoJ).
 
@@ -330,7 +330,7 @@ This gives us a handy grid structure that makes it easier to detect broad, sweep
 
 # License
 
-We hope that this work will be useful to journalists, climate analysts, and various people interested in the changing shape and nature of Sri Lanka. These images and outputs are provided on the terms of the MIT license - 
+We (Team Watchdog) hope that this work will be useful to journalists, climate analysts, and various people interested in the changing shape and nature of Sri Lanka. These images and outputs are provided on the terms of the MIT license - 
 
 PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THESE OUTPUTS OR THE USE OR OTHER DEALINGS IN THE OUTPUTS.
 
