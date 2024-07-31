@@ -311,7 +311,7 @@ In this image, bright green is forest; untouched forestry. Blue is water. Variou
 
 
 
-This gives us a handy grid structure that makes it easier to detect broad, sweeping changes before examining those precise locations with the more fine-grained imagery above, across the years from 2017-2014, with the grid aligned uniformly. 
+This gives us a handy grid structure that makes it easier to detect broad, sweeping changes before examining those precise locations with the more fine-grained imagery above, across the years from 2017-2024, with the grid aligned uniformly. 
 
 
 # License
