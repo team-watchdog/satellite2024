@@ -1,18 +1,7 @@
 # Sri Lankan maps for understanding environment and urban growth
 by Yudhanjaya Wijeratne (@yudhanjaya)
 
-This repository contains the results of Team Watchdog's work with satellite imagery: 32 satellite imagery maps of Sri Lanka from 2017-2024, ranging from normal RGB, to high contrast versions, to gridded land cover / land use mapped by our in-house machine learning models. The satellite imagery was obtianed at a 10^2 meter resolution from Sentinel-2 and is here made available in a commonly viewable format (JPG) at a resolution of 13214x21888 pixels per map. 
-
-This work was created in partnership with the Strengthening Social Cohesion and Peace in Sri Lanka programme (SCOPE) co-funded by the European Union and German Federal Foreign Office. SCOPE is implemented by The Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH in partnership with the Ministry of Justice, Prisons Affairs and Constitutional Reforms (MoJ).
-
-This project contains modified Copernicus Sentinel data [2024] via Google Earth Engine and Sepal.io. [EU law](https://sentinel.esa.int/documents/247904/690755/Sentinel_Data_Legal_Notice) grants free access to Copernicus Sentinel Data and Service Information for the purpose of the following use in so far as it is lawful:
-- reproduction;
-- distribution;
-- communication to the public;
-- adaptation, modification and combination with other data and information;
-- any combination of points (a) to (d)
-
-Special thanks to the European Space Agency, Google and Sepal for making these services available.
+This repository contains the results of Team Watchdog's work with satellite imagery: 32 satellite imagery maps of Sri Lanka from 2017-2024, ranging from normal RGB, to high contrast versions, to gridded land cover / land use mapped by our in-house machine learning models. The satellite imagery was obtianed at a 10^2 meter resolution from Sentinel-2 and is here made available in a commonly viewable format (JPG) at reduced resolution. 
 
 # Maps
 
@@ -52,134 +41,6 @@ While originally we obtained imagery directly from Sentinel Hub using their Pyth
 
 To minimize cloud cover and artefacts, we use data from three seasons of each year up to the 31st of December. The exception is 2024, where, as of the time of writing, it is not yet December, and therefore, we used two seasons of data up to the 29th of July. Imagery used for this pull had to satisfy the criteria of having less than 20% cloud cover; then these are put together into an optical mosaic that gives us a composite image for the year. The general settings for the data pull are here (also available as LK_Optical_S2.json in this repo) and can be replicated on Sepal*. 
 
-```
-{
-   "id":"5ac6742e-819a-4e7e-96af-26c6af252c0a",
-   "projectId":"7a41c873-8df1-4f39-9b12-2b4552ca511f",
-   "type":"MOSAIC",
-   "placeholder":"Optical_mosaic_2024-06-24_15-14-29",
-   "model":{
-      "dates":{
-         "targetDate":"2024-07-29",
-         "seasonStart":"2024-01-01",
-         "seasonEnd":"2025-01-01",
-         "yearsBefore":1,
-         "yearsAfter":0
-      },
-      "sources":{
-         "dataSets":{
-            "SENTINEL_2":[
-               "SENTINEL_2"
-            ]
-         },
-         "cloudPercentageThreshold":20
-      },
-      "sceneSelectionOptions":{
-         "type":"ALL",
-         "targetDateWeight":0
-      },
-      "compositeOptions":{
-         "corrections":[
-            "SR",
-            "BRDF",
-            "CALIBRATE"
-         ],
-         "filters":[
-            
-         ],
-         "cloudDetection":[
-            "QA",
-            "CLOUD_SCORE"
-         ],
-         "cloudMasking":"MODERATE",
-         "cloudBuffer":0,
-         "snowMasking":"ON",
-         "compose":"MEDOID"
-      },
-      "scenes":null,
-      "aoi":{
-         "type":"EE_TABLE",
-         "id":"users/wiell/SepalResources/gaul",
-         "keyColumn":"id",
-         "key":231,
-         "level":"COUNTRY",
-         "buffer":1
-      }
-   },
-   "layers":{
-      "areas":{
-         "left":{
-            "id":"e38d8c84-6d63-4b31-8810-f6c8fa4da1f3",
-            "imageLayer":{
-               "sourceId":"google-satellite"
-            },
-            "featureLayers":[
-               {
-                  "sourceId":"aoi",
-                  "disabled":true
-               },
-               {
-                  "sourceId":"labels",
-                  "disabled":true
-               }
-            ]
-         },
-         "right":{
-            "id":"default-layer",
-            "imageLayer":{
-               "sourceId":"this-recipe",
-               "layerConfig":{
-                  "panSharpen":false,
-                  "visParams":{
-                     "type":"rgb",
-                     "bands":[
-                        "red",
-                        "green",
-                        "blue"
-                     ],
-                     "min":[
-                        300,
-                        100,
-                        0
-                     ],
-                     "max":[
-                        2500,
-                        2500,
-                        2300
-                     ],
-                     "gamma":[
-                        1.3,
-                        1.3,
-                        1.3
-                     ],
-                     "inverted":[
-                        false,
-                        false,
-                        false
-                     ]
-                  }
-               }
-            },
-            "featureLayers":[
-               {
-                  "sourceId":"aoi"
-               },
-               {
-                  "sourceId":"labels",
-                  "disabled":true
-               },
-               {
-                  "sourceId":"values",
-                  "disabled":true
-               }
-            ]
-         }
-      },
-      "mode":"grid"
-   },
-   "title":"LK_Optical_s2"
-}
-```
 * note that Sepal requires some setting up and interlinking of Google Earth Engine and Google Cloud.
 
 Imagery obtained this way is tiled into multiple tiffs that are connected together by a single .VRT file. We used QGIS to stitch everything together into a single TIF file for each year. 
@@ -328,11 +189,20 @@ In this image, bright green is forest; untouched forestry. Blue is water. Variou
 This gives us a handy grid structure that makes it easier to detect broad, sweeping changes before examining those precise locations with the more fine-grained imagery above, across the years from 2017-2024, with the grid aligned uniformly. 
 
 
-# License
+# License and Acknowledgements
 
 We (Team Watchdog) hope that this work will be useful to journalists, climate analysts, and various people interested in the changing shape and nature of Sri Lanka. These images and outputs are provided on the terms of the MIT license - 
 
 PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THESE OUTPUTS OR THE USE OR OTHER DEALINGS IN THE OUTPUTS.
 
+This work was created by Watchdog Sri Lanka (Appendix) as a part of the project Building Tools to Strengthen Pluralist, Inclusive and Fact-based Public Discourse, conducted by LIRNEasia. LIRNEasia (www.lirneasia.net) is a pro-poor, pro-market regional digital policy think tank. The project is conducted in partnership with the Strengthening Social Cohesion and Peace in Sri Lanka (SCOPE) programme, co-funded by the European Union and German Federal Foreign Office. SCOPE is implemented by GIZ in partnership with the Ministry of Justice, Prisons Affairs and Constitutional Reforms.
 
+This project contains modified Copernicus Sentinel data [2024] via Google Earth Engine and Sepal.io. [EU law](https://sentinel.esa.int/documents/247904/690755/Sentinel_Data_Legal_Notice) grants free access to Copernicus Sentinel Data and Service Information for the purpose of the following use in so far as it is lawful:
+- reproduction;
+- distribution;
+- communication to the public;
+- adaptation, modification and combination with other data and information;
+- any combination of points (a) to (d)
+
+Special thanks to the European Space Agency, Google and Sepal for making these services available.
 
