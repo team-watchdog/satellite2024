@@ -1,7 +1,7 @@
 # Sri Lankan maps for understanding environment and urban growth
 by Yudhanjaya Wijeratne (@yudhanjaya)
 
-This repository contains the results of Team Watchdog's work with satellite imagery: 32 satellite imagery maps of Sri Lanka from 2017-2024, ranging from normal RGB, to high contrast versions, to gridded land cover / land use mapped by our in-house machine learning models. The satellite imagery was obtianed at a 10^2 meter resolution from Sentinel-2 and is here made available in a commonly viewable format (JPG) at reduced resolution. 
+This repository contains the results of Team Watchdog's work with satellite imagery: 32 satellite imagery maps of Sri Lanka from 2017-2024, ranging from normal RGB, to high contrast versions, to gridded land cover / land use mapped by our in-house machine learning models. The satellite imagery was obtained at a 10^2 meter resolution from Sentinel-2 and is here made available in a commonly viewable format (JPG) at reduced resolution. 
 
 # Maps
 
